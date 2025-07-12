@@ -1,9 +1,10 @@
-void  basic();
-	void main()
+void basicsal();
+
+void main()
 {
-	   basic();
+	 basicsal();
 }
-void  basic()
+void basicsal()
 {
 	
 	float basic=4000;
@@ -36,4 +37,3 @@ void  basic()
 	 	printf("total is %f \n",total);
 	 }
 }
-
