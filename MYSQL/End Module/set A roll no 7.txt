@@ -1,0 +1,148 @@
+set A
+
+1. Write an SQL query to retrieve all employees' names and salaries from a table named `Employees`, ordered by salary in descending order.
+
+answer:-select name, salary from employees order by salary desc;
+
+
+2. Retrieve the top 5 highest-paid employees from the `Employees` table.
+
+answer:- select salary from employees order by salary desc limit 5;
+
+
+
+3. Fetch employee records from the `Employees` table, skipping the first 3 records and showing the next 5 records.
+
+answer:- select from employees limit 5 offset 3;
+
+4. Write a query to count the number of employees in each department from the `Employees` table.
+
+answer:- select dept_id count(*) from employees group by dept_id;
+
+
+5. Fetch the department-wise average salary from the `Employees` table, only for departments where the average salary is greater than 50,000.
+
+answer: select dept_id, avg(salary) from employees group by dept_id having avg(salary<50000);
+
+
+
+6. Retrieve a list of products from the `Products` table where the product name contains the word "Laptop" .
+
+answer:- select * from products where ProductName LIKE 'laptop';
+
+
+7.Extract the first three characters from the `student_name` column in the `Students` table.
+
+answer:- select from students where student_name='---i';
+
+8.Fetch only those students from the `Students` table whose names start with the letter "A".
+
+answer:- select *from student where name like='a%';
+
+
+9.Write an SQL query to find the total number of orders placed in each month, considering only those months where more than 100 orders were placed.
+
+answer:-  select month(order_date) count(*) from orders group by month(order_date)
+	having count(*)>100;
+
+
+
+10. Get the total and average sales amount per category from the `Sales` table, considering only categories with total sales greater than 1,00,000.
+
+answer: select category, sum(sales_amount), avg(sales_amount)
+ from sales 
+group by category 
+having sum(sales_amount)>100000;
+
+
+11.What does the following query return?
+SELECT COUNT(*) FROM Employees;
+a) The total number of employees
+b) The sum of salaries of employees
+c) The first record of the table
+d) An error message
+
+
+answer: a
+
+12.What will be the output of the following query?
+SELECT LENGTH('Database');
+a) 9
+b) 8
+c) 10
+d) Error
+
+
+answer: b
+
+13)Which of the following clauses is used to filter grouped results?
+a) WHERE
+b) ORDER BY
+c) HAVING
+d) GROUP BY
+
+answer: c
+
+14)What does `LEFT JOIN` do?
+a) Returns only the matching rows from both tables
+b) Returns all rows from the left table and matching rows from the right table
+c) Returns all rows from the right table and matching rows from the left table
+d) Returns all rows from both tables
+
+answer: b
+
+15. What will be the result of the following query?
+SELECT UPPER('hello world');
+a) hello world
+b) HELLO WORLD
+c) Hello World
+d) Syntax error
+
+answer: b
+
+16.You have two tables:
+•
+Orders with columns: order_id, customer_id, order_date, total_amount.
+•
+Customers with columns: customer_id, region.
+•
+O/P- region | total_orders
+Write an SQL query to find the total order amount (total_amount) for each region. Only include regions where the total order amount is greater than 10000
+
+
+answer:  
+
+select  region, SUM(total_amount) from Orders 
+join Customers  ON order_id = customer_id
+group by region 
+having sum(total_amount) > 10000;
+
+
+
+17. Question: You have two tables:
+
+Books with columns: book_id, author_id, title, price.
+Sales with columns: sale_id, book_id, sale_date, quantity.
+
+O/P- author_id | total_books_sold
+Write an SQL query to find the total number of books sold by each author. Only include authors who have sold more than 100 books.
+
+answer:  select book, sum(total_books_sold)from sales
+join books on book_id= sales_id
+group by book
+having sum(total_book sold)>100;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
